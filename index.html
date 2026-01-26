@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>XANAN Player Card</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XANAN Dark Audio Player</title>
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="bg-dark d-flex justify-content-center align-items-center vh-100">
 
-<body class="bg-dark text-white">
+<!-- Player Card -->
+<div id="player" class="card shadow-lg text-light p-3 player-card">
+  <!-- Album Art -->
+  <img id="art" class="card-img-top rounded" src="" alt="Album Art">
 
-  <div id="player" class="player-card shadow-lg rounded-4">
-    <img id="art" class="art img-fluid rounded-3" src="" alt="Album Art">
-    
-    <div class="info mt-2">
-      <div id="title" class="title fw-semibold text-truncate">Select a song</div>
-      <input id="progress" type="range" class="form-range" min="0" max="100" value="0">
+  <!-- Track Info -->
+  <div class="card-body">
+    <h5 id="title" class="card-title text-truncate">Select a song</h5>
+    <input id="progress" type="range" class="form-range" min="0" max="100" value="0">
+    <div class="d-flex justify-content-between small mb-2">
+      <span id="current">0:00</span>
+      <span id="duration">0:00</span>
     </div>
-    
-    <div class="controls d-flex align-items-center gap-2 mt-2">
+
+    <!-- Controls -->
+    <div class="d-flex align-items-center gap-2 mb-2">
       <button id="prev" class="btn btn-outline-light btn-sm">⏮</button>
       <button id="play" class="btn btn-outline-light btn-sm">▶</button>
       <button id="next" class="btn btn-outline-light btn-sm">⏭</button>
       <input id="volume" type="range" min="0" max="1" step="0.01" value="0.7" class="form-range flex-grow-1">
-      <a id="download" download class="btn btn-outline-light btn-sm">⬇</a>
+      <a id="download" class="btn btn-outline-light btn-sm" download>⬇</a>
     </div>
-    
-    <ul id="playlist" class="playlist list-group mt-2"></ul>
-    <audio id="audio"></audio>
+
+    <!-- Playlist -->
+    <ul id="playlist" class="list-group list-group-flush"></ul>
   </div>
 
-  <!-- Bootstrap JS (optional, for components like tooltips if needed) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- Custom JS -->
-  <script src="script.js"></script>
-</body>
+  <audio id="audio"></audio>
+</div>
 
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
