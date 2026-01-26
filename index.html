@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>XANAN Player Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="player" class="player-card dark">
+    <img id="art" class="art" src="" alt="Album Art">
+    <div class="info">
+      <div id="title" class="title">Select a song</div>
+      <input id="progress" type="range" min="0" max="100" value="0">
+    </div>
+    <div class="controls">
+      <button id="prev">⏮</button>
+      <button id="play">▶</button>
+      <button id="next">⏭</button>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="0.7">
+      <a id="download" download>⬇</a>
+    </div>
+    <ul id="playlist" class="playlist"></ul>
+    <audio id="audio"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
