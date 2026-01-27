@@ -4,28 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XANAN Dark Audio Player</title>
-<!-- Bootstrap 5 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-dark d-flex justify-content-center align-items-center vh-100">
+<body>
 
-<!-- Player Card -->
 <div id="player" class="card shadow-lg text-light p-3 player-card">
-  <!-- Album Art -->
-  <img id="art" class="card-img-top rounded" src="" alt="Album Art">
-
-  <!-- Track Info -->
-  <div class="card-body">
-    <h5 id="title" class="card-title text-truncate">Select a song</h5>
-    <input id="progress" type="range" class="form-range" min="0" max="100" value="0">
-    <div class="d-flex justify-content-between small mb-2">
+  <img id="art" class="card-img-top rounded mb-2" src="" alt="Album Art">
+  <div class="card-body d-flex flex-column align-items-center">
+    <h5 id="title" class="card-title text-truncate text-center w-100">Select a song</h5>
+    
+    <input id="progress" type="range" class="form-range mt-2" min="0" max="100" value="0">
+    <div class="d-flex justify-content-between w-100 small mb-2">
       <span id="current">0:00</span>
       <span id="duration">0:00</span>
     </div>
 
-    <!-- Controls -->
-    <div class="d-flex align-items-center gap-2 mb-2">
+    <div class="d-flex align-items-center gap-2 mb-2 w-100">
       <button id="prev" class="btn btn-outline-light btn-sm">⏮</button>
       <button id="play" class="btn btn-outline-light btn-sm">▶</button>
       <button id="next" class="btn btn-outline-light btn-sm">⏭</button>
@@ -33,15 +28,11 @@
       <a id="download" class="btn btn-outline-light btn-sm" download>⬇</a>
     </div>
 
-    <!-- Playlist -->
-    <ul id="playlist" class="list-group list-group-flush"></ul>
+    <ul id="playlist" class="list-group list-group-flush w-100 mt-2"></ul>
   </div>
-
   <audio id="audio"></audio>
 </div>
 
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
