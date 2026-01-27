@@ -1,95 +1,20 @@
 body {
-  background: #111;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  height: 200vh;
-  margin: 0;
+  margin:0; font-family:system-ui; overflow:hidden; background:#110000; display:flex; justify-content:center; align-items:center; height:100vh;
 }
 
 .player-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* center the card */
-  width: 260px;
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-  background: #181818;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  user-select: none;
+  width:360px; max-width:95%; border-radius:20px; padding:16px;
+  background: linear-gradient(180deg,#2b0000 0%,#160000 60%,#000 100%);
+  box-shadow:0 20px 50px rgba(0,0,0,0.8);
+  color:#fff;
 }
 
-.player-card.light {
-  background: #f5f5f5;
-  color: #000;
-}
+#progress,#volume{accent-color:#d81f26; height:4px;}
+button,a.btn{border-radius:50px !important; transition:all .2s;}
+button:hover,a.btn:hover{background:rgba(216,31,38,.2); border-color:#d81f26;color:#ff4d4d;}
+#play{font-size:1.4rem; padding:6px 14px;}
+#playlist{margin-top:10px; max-height:180px; overflow-y:auto;}
+#playlist .list-group-item{background:transparent;color:#eee;border:none;padding:8px 4px; cursor:pointer; transition:all .2s;}
+#playlist .list-group-item:hover,#playlist .list-group-item.active{background:rgba(255,60,60,.15); color:#ff4d4d;}
 
-.art {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.title {
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#progress {
-  width: 100%;
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.controls button,
-.controls a {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.controls button:hover,
-.controls a:hover {
-  color: #1db954;
-}
-
-input[type="range"] {
-  flex: 1;
-  accent-color: #1db954;
-}
-
-.playlist {
-  max-height: 100px;
-  overflow-y: auto;
-  margin: 4px 0 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 13px;
-}
-
-.playlist li {
-  padding: 4px;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.playlist li:hover,
-.playlist .active {
-  background: rgba(0, 0, 0, 0.2);
-}
+@media(max-width:576px){.player-card{width:100%; height:100vh; border-radius:0;}}
