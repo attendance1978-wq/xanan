@@ -1,0 +1,19 @@
+{
+  "songs": [
+    {
+      "title": "Kung Pwede Lang",
+      "file": "Kung%20Pwede%20Lang.ogg",
+      "art": "Kung%20Pwede%20Lang.jpeg"
+    },
+    {
+      "title": "Tahimik na Pagod",
+      "file": "Tahimik%20na%20Pagod.ogg",
+      "art": "Tahimik%20na%20Pagod.jpeg"
+    },
+    {
+      "title": "Fading Light",
+      "file": "Title_%20Fading%20Light.ogg",
+      "art": "Title_%20Fading%20Light.jpeg"
+    }
+  ]
+}
