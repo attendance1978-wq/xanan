@@ -17,7 +17,7 @@ let playlist = [];
 let index = 0;
 
 // Load playlist from JSON
-fetch("playlist.json")
+fetch(base + "playlist.json")
   .then(res => res.json())
   .then(data => {
     playlist = data.songs;
@@ -49,7 +49,7 @@ function loadSong(i, auto=false){
   title.textContent = song.title;
   download.href = audio.src;
 
-  [...playlistUI.children].forEach(li=>li.classList.remove("active"));
+  [...playlistUI.children].forEach(li => li.classList.remove("active"));
   playlistUI.children[i].classList.add("active");
 
   // Reset progress
@@ -58,35 +58,37 @@ function loadSong(i, auto=false){
   durationEl.textContent = "0:00";
 
   if(auto){
-    // Play after canplay event, required for browser autoplay rules
     audio.pause();
     audio.currentTime = 0;
     audio.oncanplay = () => {
-      audio.play().catch(err => console.log("Autoplay blocked, click play.", err));
+      audio.play().catch(err => console.log("Autoplay blocked:", err));
     };
   }
 }
 
 // Controls
-playBtn.onclick = () => {
-  if(audio.paused) audio.play();
-  else audio.pause();
-};
+playBtn.onclick = () => audio.paused ? audio.play() : audio.pause();
+nextBtn.onclick = () => loadSong((index + 1) % playlist.length, true);
+prevBtn.onclick = () => loadSong((index - 1 + playlist.length) % playlist.length, true);
 
-nextBtn.onclick = () => loadSong((index+1) % playlist.length, true);
-prevBtn.onclick = () => loadSong((index-1 + playlist.length) % playlist.length, true);
+// Volume control
+volume.oninput = e => audio.volume = e.target.value / 100;
 
-volume.oninput = e => audio.volume = e.target.value;
-
+// Update play/pause button
 audio.onplay = () => playBtn.textContent = "⏸";
 audio.onpause = () => playBtn.textContent = "▶";
+
+// Auto next song
 audio.onended = () => nextBtn.click();
 
+// Update duration
 audio.onloadedmetadata = () => durationEl.textContent = formatTime(audio.duration);
 
+// Update progress
 audio.ontimeupdate = () => {
   currentTimeEl.textContent = formatTime(audio.currentTime);
   progress.value = (audio.currentTime / audio.duration) * 100 || 0;
 };
 
+// Seek
 progress.oninput = () => audio.currentTime = (progress.value / 100) * audio.duration;
